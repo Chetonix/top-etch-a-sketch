@@ -1,23 +1,30 @@
 const container = document.querySelector(".container");
 const sketchPad = document.createElement("div");
 let color = "rainbow";
+let elementBefore = document.querySelector(".size-container");
+let slider = document.querySelector('#sizeRange');
 
 function createGrid(gridNumber) {
-  for (let i = 0; i < gridNumber; i++) {
-    for (let j = 0; j < gridNumber; j++) {
+  for (let i = 0; (i < (gridNumber * gridNumber)); i++) {
+    
       let div = document.createElement("div");
       // div.style.backgroundColor = "white";
       // div.style.height = "10px";
       // div.style.width = "10px";
       div.classList.add("square");
       sketchPad.appendChild(div);
-      sketchPad.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
-      sketchPad.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
-      container.appendChild(sketchPad);
-      
     }
-  }
+    sketchPad.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
+    sketchPad.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
+      // container.appendChild(sketchPad);
+    elementBefore.parentNode.insertBefore(sketchPad, elementBefore);
 }
+
+function pixelSize() {
+  createGrid(this.value);
+}
+
+slider.addEventListener('mouseup', pixelSize);
 
 createGrid(16);
 

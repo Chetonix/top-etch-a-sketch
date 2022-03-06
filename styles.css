@@ -10,7 +10,7 @@ body {
 
 .container {
   display: flex;
-  background-color: #eaeaea;
+  background-color: #ffc4e1;
   max-width: 1000px;
   width: 90%;
   text-align: center;
@@ -30,8 +30,8 @@ body {
   justify-self: center;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
+  /* grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr); */
   grid-gap: 0;
   height: 400px;
   width: 400px;
