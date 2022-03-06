@@ -16,17 +16,18 @@ function createGrid(gridNumber) {
     }
     sketchPad.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
     sketchPad.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
-      // container.appendChild(sketchPad);
-    elementBefore.parentNode.insertBefore(sketchPad, elementBefore);
+    
+    container.appendChild(sketchPad);
+    // elementBefore.parentNode.insertBefore(sketchPad, elementBefore);
 }
 
-function pixelSize() {
-  createGrid(this.value);
-}
+// function pixelSize() {
+//   createGrid(this.value);
+// }
 
-slider.addEventListener('mouseup', pixelSize);
+// slider.addEventListener('mouseup', pixelSize);
 
-createGrid(16);
+createGrid(30);
 
 sketchPad.classList.add("sketch-pad");
 let squares = document.querySelectorAll(".square");
