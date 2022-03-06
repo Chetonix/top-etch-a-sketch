@@ -1,17 +1,25 @@
 const container = document.querySelector(".container");
 const sketchPad = document.createElement("div");
 let color = "rainbow";
-for (let i = 0; i < 16; i++) {
-  for (let j = 0; j < 16; j++) {
-    let div = document.createElement("div");
-    // div.style.backgroundColor = "white";
-    // div.style.height = "10px";
-    // div.style.width = "10px";
-    div.classList.add("square");
-    sketchPad.appendChild(div);
-    container.appendChild(sketchPad);
+
+function createGrid(gridNumber) {
+  for (let i = 0; i < gridNumber; i++) {
+    for (let j = 0; j < gridNumber; j++) {
+      let div = document.createElement("div");
+      // div.style.backgroundColor = "white";
+      // div.style.height = "10px";
+      // div.style.width = "10px";
+      div.classList.add("square");
+      sketchPad.appendChild(div);
+      sketchPad.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
+      sketchPad.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
+      container.appendChild(sketchPad);
+      
+    }
   }
 }
+
+createGrid(16);
 
 sketchPad.classList.add("sketch-pad");
 let squares = document.querySelectorAll(".square");
@@ -48,3 +56,6 @@ eraser.addEventListener("click", () => (color = "eraser"));
 // function eraseSquare() {
 //   erase = true;
 // }
+
+const rainbow = document.querySelector(".rainbow");
+rainbow.addEventListener("click", () => {color = "rainbow"});
