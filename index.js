@@ -4,7 +4,7 @@ let color = "rainbow";
 let elementBefore = document.querySelector(".size-container");
 let slider = document.querySelector('#sizeRange');
 let userColorPicker = document.getElementById("input-color");
-let pixelSelection = document.getElementById("pixels");
+// let pixelSelection = document.getElementById("pixels");
 let gridNumber = 16;
 function createGrid(gridNumber) {
   for (let i = 0; (i < (gridNumber * gridNumber)); i++) {
@@ -21,22 +21,28 @@ function createGrid(gridNumber) {
     
     container.appendChild(sketchPad);
     // elementBefore.parentNode.insertBefore(sketchPad, elementBefore);
-}
+    sketchPad.classList.add("sketch-pad");
 
+    
+
+}
+createGrid(gridNumber);
+
+let squares = document.querySelectorAll(".square");
 // function pixelSize() {
 //   createGrid(this.value);
 // }
 
 // slider.addEventListener('mouseup', pixelSize);
 
-createGrid(gridNumber);
 
-sketchPad.classList.add("sketch-pad");
-let squares = document.querySelectorAll(".square");
 squares.forEach((square) => {
   // console.log(square);
   square.addEventListener("mouseenter", applyColor);
 });
+// sketchPad.classList.add("sketch-pad");
+// let squares = document.querySelectorAll(".square");
+
 
 function applyColor() {
   if (color === "rainbow") {
@@ -80,4 +86,5 @@ const rainbow = document.querySelector(".rainbow");
 rainbow.addEventListener("click", () => {color = "rainbow"});
 userColorPicker.addEventListener("input", (event) => {color = event.target.value});
 // userColorPicker.addEventListener("change", (event) => {color = event.target.value});
-pixelSelection.addEventListener("input", (event) => {gridNumber = event.target.value; pixelRemove() ;createGrid(gridNumber);});
+// pixelSelection.addEventListener("input", (event) => {gridNumber = event.target.value; pixelRemove() ;createGrid(gridNumber);});
+
