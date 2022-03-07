@@ -84,3 +84,19 @@ body {
 .button:hover {
   background-color: #f082ac;
 }
+
+#input-color {
+  align-self: center;
+  background-color: #ea4c89;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+}
+
+.grid-size {
+  margin-bottom: 10px;
+}
+
+.grid-size label {
+  align-self: center;
+}

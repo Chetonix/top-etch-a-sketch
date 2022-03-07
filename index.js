@@ -3,7 +3,9 @@ const sketchPad = document.createElement("div");
 let color = "rainbow";
 let elementBefore = document.querySelector(".size-container");
 let slider = document.querySelector('#sizeRange');
-
+let userColorPicker = document.getElementById("input-color");
+// let pixelSelection = document.getElementById("pixels");
+let gridNumber = 16;
 function createGrid(gridNumber) {
   for (let i = 0; (i < (gridNumber * gridNumber)); i++) {
     
@@ -27,7 +29,7 @@ function createGrid(gridNumber) {
 
 // slider.addEventListener('mouseup', pixelSize);
 
-createGrid(30);
+createGrid(16);
 
 sketchPad.classList.add("sketch-pad");
 let squares = document.querySelectorAll(".square");
@@ -44,8 +46,12 @@ function applyColor() {
     // console.log(this);
     this.style.backgroundColor = randomColor;
   }
-  if (color === "eraser") {
+  else if (color === "eraser") {
     this.style.backgroundColor = "white";
+  }
+
+  else {
+    this.style.backgroundColor = color;
   }
 }
 const clearBtn = document.querySelector(".clear");
@@ -67,3 +73,6 @@ eraser.addEventListener("click", () => (color = "eraser"));
 
 const rainbow = document.querySelector(".rainbow");
 rainbow.addEventListener("click", () => {color = "rainbow"});
+userColorPicker.addEventListener("input", (event) => {color = event.target.value});
+userColorPicker.addEventListener("change", (event) => {color = event.target.value});
+// pixelSelection.addEventListener("input", (event) => {gridNumber = event.target.value; createGrid(gridNumber);});
